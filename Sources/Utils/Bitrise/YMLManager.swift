@@ -8,10 +8,23 @@
 import Foundation
 import Yams
 
-public struct BitriseWorkflowsManager {
+public struct YMLManager {
     
-    public static func createWorkflow(_ appName: String, for appBitriseYML: String) throws {
-        let appNode = try self.getNodes(from: appBitriseYML)
+    public static func addTargetToProject(_ appName: String, for projectYMLPath: String) throws {
+        var yamlString = try String(contentsOfFile: projectYMLPath, encoding: .utf8)
+
+        let newSection = """
+      \(appName):
+          build: *commonScheme
+    """
+
+        yamlString.append(newSection)
+
+        try yamlString.write(toFile: projectYMLPath, atomically: true, encoding: .utf8)
+    }
+    
+    public static func createWorkflow(_ appName: String, for appBitriseYMLPath: String) throws {
+        let appNode = try self.getNodes(from: appBitriseYMLPath)
         let bitriseNode = try self.getNodes(from: "odiloapp_v3_ios/bitrise.yml")
         
         try self.addWorkflow(appNode: appNode, bitriseNode: bitriseNode, appName: appName)

@@ -34,6 +34,7 @@ public struct Command {
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
             let data = handle.availableData
             let text = String(data: data, encoding: .utf8) ?? ""
+            print(text)
         }
         
         task.launch()

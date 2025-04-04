@@ -29,7 +29,7 @@ Para ejecutar el generador de branding directamente desde el repositorio, utiliz
 swift run BrandingCreator create $appName
 ```
 
-Este comando generará el branding de la app para el cliente denominado PRUEBA. Asegúrate de tener el archivo de configuración adecuado (xcconfig y bitrise.yml) en el directorio correspondiente antes de ejecutar el comando.
+Este comando generará el branding de la app para el cliente. Asegúrate de tener el archivo de configuración adecuado (xcconfig y bitrise.yml) en el directorio correspondiente antes de ejecutar el comando.
 
 ### Opción 2: Instalar mediante Mint
 
