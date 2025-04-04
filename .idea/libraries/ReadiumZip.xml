@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ReadiumZip">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/odiloapp_v3_ios/Resources/ReadiumZip.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/BrandingCreator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/FirebaseAdmin.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/Models/BitriseModels.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/Models/XcodegenProjectModels.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/FirebaseAdmin/FirebaseManager.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/FirebaseAdmin/FirebaseModels.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/Utils/Collection+Extension.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/Utils/Command.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/Utils/GitWrapper.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sources/Utils/XCConfigParser.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Package.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/OdiloRebrand/OdiloRebrand.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/OdiloRebrandTests/OdiloRebrandTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odiloapp_v3_ios/bitrise.yml" beforeDir="false" afterPath="$PROJECT_DIR$/odiloapp_v3_ios/bitrise.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectId" id="2uDDUyq1lcnKknKTc82Pvk6Jet8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/csoler/Documents/Projects/ArKoN/OdiloRebrand"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="" />
+      <created>1741774270386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741774270386</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
