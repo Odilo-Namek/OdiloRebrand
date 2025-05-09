@@ -15,7 +15,8 @@ import Utils
     static let configuration = CommandConfiguration(abstract: "Client brandings manager.",
                                                     subcommands: [BrandingCreator.Create.self,
                                                                   BrandingCreator.Delete.self,
-                                                                  FirebaseAdmin.self])
+                                                                  FirebaseAdmin.self,
+                                                                  StylesGenerator.self])
     
     // MARK: Subcommands
     
@@ -32,29 +33,28 @@ import Utils
         var bitriseYMLPath: String?
         
         mutating func run() async throws {
-//            let projectYML = "./odiloapp_v3_ios/project.yml"
-//            let bitriseYML = self.bitriseYMLPath ?? "./\(self.appName)/\(self.appName).yml"
-//            let xcConfigPath = self.xcConfigPath ?? "./\(self.appName)/\(self.appName).xcconfig"
-//            let xcConfigProperties = XCConfigParser.parse(from: xcConfigPath)
-//            
-//            try FirebaseManager.createNewApp(self.appName, xcConfigProperties: xcConfigProperties)
-//            GitWrapper.cloneRepository("https://bitbucket.org/odilo-dev/odiloapp_v3_ios.git")
-//            GitWrapper.createBranch("branding_\(self.appName.lowercased())")
-//            try YMLManager.addTargetToProject(self.appName, for: projectYML)
-//            try YMLManager.createWorkflow(self.appName, for: bitriseYML)
-//            try await AssetsManager.createAssets(self.appName, xcConfigProperties: xcConfigProperties)
+            let projectYML = "./odiloapp_v3_ios/project.yml"
+            let bitriseYML = self.bitriseYMLPath ?? "./\(self.appName)/\(self.appName).yml"
+            let xcConfigPath = self.xcConfigPath ?? "./\(self.appName)/\(self.appName).xcconfig"
+            let xcConfigProperties = XCConfigParser.parse(from: xcConfigPath)
             
-//            let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-//            let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
-//            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
+            try FirebaseManager.createNewApp(self.appName, xcConfigProperties: xcConfigProperties)
+            GitWrapper.cloneRepository("https://bitbucket.org/odilo-dev/odiloapp_v3_ios.git")
+            GitWrapper.createBranch("branding_\(self.appName.lowercased())")
+            try YMLManager.addTargetToProject(self.appName, for: projectYML)
+            try YMLManager.createWorkflow(self.appName, for: bitriseYML)
+            try await AssetsManager.createAssets(self.appName, xcConfigProperties: xcConfigProperties)
+            
+            let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
+            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             Command.runCommand("chmod 777 odiloapp_v3_ios")
             Command.runCommand("cd odiloapp_v3_ios")
-            Command.runCommand("pwd")
             GitWrapper.add()
             GitWrapper.commit("Finished branding \(self.appName)")
             GitWrapper.push()
             
-            print("Recuerda añadir manualmente el appItunesID una vez que este la ficha creada en el AppStoreConnect")
+            print("Recuerda añadir manualmente el appItunesID en el xcconfig una vez que este la ficha creada en el AppStoreConnect")
             print("Recuerda subir las imagenes a la tienda manualmente")
             print("Recuerda provocar el crash para que conecte con Crashlytics")
             print("Recuerda añadir el deeplinking al repositorio de Orion")
