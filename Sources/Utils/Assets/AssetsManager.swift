@@ -47,6 +47,8 @@ public class AssetsManager {
         
         let assetsURL = themeURL.appendingPathComponent("iOS.zip")
         let stylesURL = themeURL.appendingPathComponent("variables.xlsx")
+        print("ASSETS URL: \(assetsURL.absoluteString)")
+        print("STYLES URL: \(stylesURL.absoluteString)")
         
         let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
         let brandingFolderURL = rootURL.appendingPathComponent("\(appName)")

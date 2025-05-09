@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/BrandingCreator.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/FirebaseAdmin.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/Models/BitriseModels.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/BrandingCreator/Models/XcodegenProjectModels.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/FirebaseAdmin/FirebaseManager.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/FirebaseAdmin/FirebaseModels.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/Utils/Collection+Extension.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/Utils/Command.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/Utils/GitWrapper.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources/Utils/XCConfigParser.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Package.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Package.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/OdiloRebrand/OdiloRebrand.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/OdiloRebrandTests/OdiloRebrandTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odiloapp_v3_ios/bitrise.yml" beforeDir="false" afterPath="$PROJECT_DIR$/odiloapp_v3_ios/bitrise.yml" afterDir="false" />
+    <list default="true" id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="Added styles generator">
+      <change beforePath="$PROJECT_DIR$/odiloapp_v3_ios" beforeDir="false" afterPath="$PROJECT_DIR$/odiloapp_v3_ios" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +14,9 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2uDDUyq1lcnKknKTc82Pvk6Jet8" />
   <component name="ProjectViewState">
@@ -34,7 +27,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/csoler/Documents/Projects/ArKoN/OdiloRebrand"
+    "last_opened_file_path": "/Users/csoler/Documents/Projects/Odilo/OdiloRebrand"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -46,6 +39,14 @@
       <option name="presentableId" value="Default" />
       <updated>1741774270386</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added styles generator">
+      <created>1746774939548</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746774939548</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -58,5 +59,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added styles generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added styles generator" />
   </component>
 </project>
