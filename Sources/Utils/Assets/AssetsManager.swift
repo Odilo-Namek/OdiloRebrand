@@ -97,7 +97,6 @@ public class AssetsManager {
         let odiloProjectFolder = assetsGenerator.rootURL.appendingPathComponent("odiloapp_v3_ios")
         let odiloRebrandingsFolder = odiloProjectFolder.appendingPathComponent("Rebrandings").appendingPathComponent(assetsGenerator.appName)
         
-        try FileManager.default.removeFiles(containing: "variables", in: assetsGenerator.brandingFolderURL)
         try FileManager.default.moveItem(at: assetsGenerator.brandingFolderURL, to: odiloRebrandingsFolder)
         
         print("Assets creados correctamente")
@@ -196,6 +195,8 @@ public class AssetsManager {
         
         let yamlURL = stylesGenerator.brandingFolderURL.appendingPathComponent("styles.yml")
         try yamlString.write(to: yamlURL, atomically: true, encoding: .utf8)
+        
+        try FileManager.default.removeFiles(containing: "variables", in: stylesGenerator.brandingFolderURL)
         
         print("Archivo YAML creado en: \(yamlURL.path)")
     }
