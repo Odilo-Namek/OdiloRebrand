@@ -16,7 +16,7 @@ import Utils
                                                     subcommands: [BrandingCreator.Create.self,
                                                                   BrandingCreator.Delete.self,
                                                                   FirebaseAdmin.self,
-                                                                  StylesGenerator.self])
+                                                                  ThemeGenerator.self])
     
     // MARK: Subcommands
     
