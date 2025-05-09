@@ -11,7 +11,7 @@ extension FileManager {
     
     func removeFiles(containing keyword: String, in directory: URL) throws {
         let contents = try contentsOfDirectory(atPath: directory.path)
-        for file in contents where file.lowercased().contains(keyword) {
+        for file in contents where file.lowercased().contains(keyword.lowercased()) {
             let filePath = directory.appendingPathComponent(file)
             try removeItem(at: filePath)
         }

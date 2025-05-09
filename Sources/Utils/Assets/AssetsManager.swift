@@ -197,7 +197,8 @@ public class AssetsManager {
         try yamlString.write(to: yamlURL, atomically: true, encoding: .utf8)
         
         try FileManager.default.removeFiles(containing: "variables", in: stylesGenerator.brandingFolderURL)
-        try FileManager.default.removeFiles(containing: "styles", in: stylesGenerator.brandingFolderURL)
+        try FileManager.default.removeFiles(containing: "Styles.m", in: stylesGenerator.brandingFolderURL)
+        try FileManager.default.removeFiles(containing: "Styles.swift", in: stylesGenerator.brandingFolderURL)
         
         print("Archivo YAML creado en: \(yamlURL.path)")
     }
