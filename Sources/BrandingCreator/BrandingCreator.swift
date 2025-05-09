@@ -43,7 +43,7 @@ import Utils
             GitWrapper.createBranch("branding_\(self.appName.lowercased())")
             try YMLManager.addTargetToProject(self.appName, for: projectYML)
             try YMLManager.createWorkflow(self.appName, for: bitriseYML)
-            try await AssetsManager.createAssets(self.appName, xcConfigProperties: xcConfigProperties)
+            try await AssetsManager.generateTheme(self.appName, xcConfigProperties: xcConfigProperties)
             
             let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")

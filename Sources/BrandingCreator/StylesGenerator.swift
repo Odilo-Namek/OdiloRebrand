@@ -28,7 +28,7 @@ struct StylesGenerator: AsyncParsableCommand {
             let xcConfigPath = self.xcConfigPath ?? "./\(self.appName)/\(self.appName).xcconfig"
             let xcConfigProperties = XCConfigParser.parse(from: xcConfigPath)
             
-            try await AssetsManager.createAssets(self.appName, xcConfigProperties: xcConfigProperties)
+            try await AssetsManager.generateTheme(self.appName, xcConfigProperties: xcConfigProperties, themeGenerators: [.styles])
         }
     }
     

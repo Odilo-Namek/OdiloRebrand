@@ -5,6 +5,8 @@
 //  Created by csoler on 14/3/25.
 //
 
+import Foundation
+
 // MARK: Client
 
 struct Client: Codable {
@@ -197,4 +199,18 @@ enum StyleType: String, Codable {
     case shadow02
     case shadow03
     case shadow04
+}
+
+struct AssetsStylesGenerator {
+    let appName: String
+    let rootURL: URL
+    let themeURL: URL
+    let brandingFolderURL: URL
+    let assetsFolderURL: URL
+    let xcConfigProperties: [XCConfigProperties : Any]
+}
+
+public enum ThemeGenerator {
+    case assets
+    case styles
 }

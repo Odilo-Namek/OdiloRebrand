@@ -30,70 +30,75 @@ public class AssetsManager {
         let session = URLSession(configuration: config)
         
         do {
-            let (data, response) = try await session.data(for: request)
+            let (data, _) = try await session.data(for: request)
             return try JSONDecoder().decode([Client].self, from: data).first { $0.clientId == clientCode }
         } catch {
             throw error
         }
     }
     
-    public static func createAssets(_ appName: String, xcConfigProperties: [XCConfigProperties : Any]?) async throws {
-        guard let clientCode = xcConfigProperties?[.clientCode] as? String,
+    public static func generateTheme(_ appName: String, xcConfigProperties: [XCConfigProperties : Any]?, themeGenerators: [ThemeGenerator] = [.assets, .styles]) async throws {
+        guard let xcConfigProperties = xcConfigProperties,
+              let clientCode = xcConfigProperties[.clientCode] as? String,
               let client = try await getClientInfo(clientCode),
               let logoURL = client.logo,
               let themeURL = URL(string: logoURL)?.deletingLastPathComponent() else {
             throw NSError(domain: "AssetsManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Cliente o URL no válidos"])
         }
         
-        let assetsURL = themeURL.appendingPathComponent("iOS.zip")
-        let stylesURL = themeURL.appendingPathComponent("variables.xlsx")
-        print("ASSETS URL: \(assetsURL.absoluteString)")
-        print("STYLES URL: \(stylesURL.absoluteString)")
-        
         let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
         let brandingFolderURL = rootURL.appendingPathComponent("\(appName)")
-        let assetsDirectory = brandingFolderURL.appendingPathComponent("\(appName).xcassets")
+        let assetsFolderURL = brandingFolderURL.appendingPathComponent("\(appName).xcassets")
         
-        let assetsZipURL = brandingFolderURL.appending(path: "assets.zip")
-        let stylesFileURL = brandingFolderURL.appendingPathComponent("variables.xlsx")
+        let assetsStylesGenerator = AssetsStylesGenerator(appName: appName, rootURL: rootURL, themeURL: themeURL, brandingFolderURL: brandingFolderURL, assetsFolderURL: assetsFolderURL, xcConfigProperties: xcConfigProperties)
         
-        let (assetsTempURL, assetsResponse) = try await URLSession.shared.download(from: assetsURL)
-        let (stylesTempURL, stylesResponse) = try await URLSession.shared.download(from: stylesURL)
-        
-        try FileManager.default.moveItem(at: assetsTempURL, to: assetsZipURL)
-        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
-        try ZipManager.unzipFile(at: assetsZipURL, to: assetsDirectory)
-        try FileManager.default.removeItem(atPath: assetsZipURL.path)
-        
-        try FileManager.default.removeFiles(containing: "itunes", in: assetsDirectory)
-        
-        let launchLogoURL = brandingFolderURL.appendingPathComponent("\(appName).xcassets").appendingPathComponent("AppIcon").appendingPathComponent("launchlogo.png")
-        let destinationURL = brandingFolderURL.appendingPathComponent("launchlogo.png")
-        try FileManager.default.moveItem(at: launchLogoURL, to: destinationURL)
-        
-        let folders = try FileManager.default.contentsOfDirectory(atPath: assetsDirectory.path).filter { !$0.contains("iTunes") && !$0.contains("launchlogo") }
-        try folders.forEach { folder in
-            let newFolderName = folder.contains("AppIcon") ? "\(folder).appiconset" : "\(folder).imageset"
-            try FileManager.default.moveItem(at: assetsDirectory.appendingPathComponent(folder), to: assetsDirectory.appendingPathComponent(newFolderName))
+        if themeGenerators.contains(.assets) {
+            try await self.generateAssets(assetsStylesGenerator)
         }
         
-        if let launchLogoName = try FileManager.default.contentsOfDirectory(atPath: assetsDirectory.path).first(where: { $0.lowercased().contains("launchlogo") }) {
-            let launchLogoURL = assetsDirectory.appendingPathComponent(launchLogoName)
-            let destinationURL = brandingFolderURL.appendingPathComponent(launchLogoName)
+        if themeGenerators.contains(.styles) {
+            try await self.generateStyles(assetsStylesGenerator)
+        }
+    }
+    
+    private static func generateAssets(_ assetsGenerator: AssetsStylesGenerator) async throws {
+        let assetsURL = assetsGenerator.themeURL.appendingPathComponent("iOS.zip")
+        print("ASSETS URL: \(assetsURL.absoluteString)")
+        
+        let (assetsTempURL, _) = try await URLSession.shared.download(from: assetsURL)
+        let assetsZipURL = assetsGenerator.brandingFolderURL.appending(path: "assets.zip")
+        
+        try FileManager.default.moveItem(at: assetsTempURL, to: assetsZipURL)
+        try ZipManager.unzipFile(at: assetsZipURL, to: assetsGenerator.assetsFolderURL)
+        try FileManager.default.removeItem(atPath: assetsZipURL.path)
+        
+        try FileManager.default.removeFiles(containing: "itunes", in: assetsGenerator.assetsFolderURL)
+        
+        let launchLogoURL = assetsGenerator.brandingFolderURL.appendingPathComponent("\(assetsGenerator.appName).xcassets").appendingPathComponent("AppIcon").appendingPathComponent("launchlogo.png")
+        let destinationURL = assetsGenerator.brandingFolderURL.appendingPathComponent("launchlogo.png")
+        try FileManager.default.moveItem(at: launchLogoURL, to: destinationURL)
+        
+        let folders = try FileManager.default.contentsOfDirectory(atPath: assetsGenerator.assetsFolderURL.path).filter { !$0.contains("iTunes") && !$0.contains("launchlogo") }
+        try folders.forEach { folder in
+            let newFolderName = folder.contains("AppIcon") ? "\(folder).appiconset" : "\(folder).imageset"
+            try FileManager.default.moveItem(at: assetsGenerator.assetsFolderURL.appendingPathComponent(folder), to: assetsGenerator.assetsFolderURL.appendingPathComponent(newFolderName))
+        }
+        
+        if let launchLogoName = try FileManager.default.contentsOfDirectory(atPath: assetsGenerator.assetsFolderURL.path).first(where: { $0.lowercased().contains("launchlogo") }) {
+            let launchLogoURL = assetsGenerator.assetsFolderURL.appendingPathComponent(launchLogoName)
+            let destinationURL = assetsGenerator.brandingFolderURL.appendingPathComponent(launchLogoName)
             
             try FileManager.default.moveItem(at: launchLogoURL, to: destinationURL)
         }
         
-        let darkMode = xcConfigProperties?[.darkMode] as? Bool ?? false
-        try self.createAssetsImages(darkMode, assetsDirectory: assetsDirectory)
+        let darkMode = assetsGenerator.xcConfigProperties[.darkMode] as? Bool ?? false
+        try self.createAssetsImages(darkMode, assetsDirectory: assetsGenerator.assetsFolderURL)
         
-        try self.createStyles(appName: appName, brandingURL: brandingFolderURL)
+        let odiloProjectFolder = assetsGenerator.rootURL.appendingPathComponent("odiloapp_v3_ios")
+        let odiloRebrandingsFolder = odiloProjectFolder.appendingPathComponent("Rebrandings").appendingPathComponent(assetsGenerator.appName)
         
-        let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
-        let odiloRebrandingsFolder = odiloProjectFolder.appendingPathComponent("Rebrandings").appendingPathComponent(appName)
-        
-        try FileManager.default.removeFiles(containing: "variables", in: brandingFolderURL)
-        try FileManager.default.moveItem(at: brandingFolderURL, to: odiloRebrandingsFolder)
+        try FileManager.default.removeFiles(containing: "variables", in: assetsGenerator.brandingFolderURL)
+        try FileManager.default.moveItem(at: assetsGenerator.brandingFolderURL, to: odiloRebrandingsFolder)
         
         print("Assets creados correctamente")
     }
@@ -153,7 +158,7 @@ public class AssetsManager {
         let loginLogoSetData = try encoder.encode(loginLogoSet)
         let infoData = try encoder.encode(InfoData())
         
-        var fileURL = assetsDirectory.appendingPathComponent("launchbackground.colorset")
+        let fileURL = assetsDirectory.appendingPathComponent("launchbackground.colorset")
         
         if let colorJsonString = String(data: colorJsonData, encoding: .utf8) {
             if !FileManager.default.fileExists(atPath: fileURL.path) {
@@ -175,15 +180,21 @@ public class AssetsManager {
         }
     }
     
-    private static func createStyles(appName: String, brandingURL: URL) throws {
-        let excelURL = brandingURL.appendingPathComponent("variables.xlsx")
+    private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
+        let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
+        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
+        let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
+        
+        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
+        
+        let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         let colors = try XMLManager.generateStylesYML(filePath: excelURL)
         
         let encoder = YAMLEncoder()
         encoder.options.indent = 2
         let yamlString = try encoder.encode(colors)
         
-        let yamlURL = brandingURL.appendingPathComponent("styles.yml")
+        let yamlURL = stylesGenerator.brandingFolderURL.appendingPathComponent("styles.yml")
         try yamlString.write(to: yamlURL, atomically: true, encoding: .utf8)
         
         print("Archivo YAML creado en: \(yamlURL.path)")
