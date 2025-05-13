@@ -42,7 +42,7 @@ public class AssetsManager {
               let clientCode = xcConfigProperties[.clientCode] as? String,
               let client = try await getClientInfo(clientCode),
               let logoURL = client.logo,
-              let themeURL = URL(string: logoURL) else {
+              let themeURL = URL(string: logoURL)?.deletingLastPathComponent() else {
             throw NSError(domain: "AssetsManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Cliente o URL no válidos"])
         }
         
@@ -180,7 +180,7 @@ public class AssetsManager {
     }
     
     private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
-        let stylesURL = URL(fileURLWithPath: "./BUENAS/\(stylesGenerator.appName)").appendingPathComponent("variables.xlsx")
+        let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
         let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         
