@@ -39,7 +39,10 @@ public class AssetsManager {
     
     public static func generateTheme(_ appName: String, xcConfigProperties: [XCConfigProperties : Any]?, themeGenerators: [ThemeGenerator] = [.assets, .styles]) async throws {
         guard let xcConfigProperties = xcConfigProperties,
-              let themeURL = URL(fileURLWithPath: "./BUENAS/\(appName)") as? URL else {
+              let clientCode = xcConfigProperties[.clientCode] as? String,
+              let client = try await getClientInfo(clientCode),
+              let logoURL = client.logo,
+              let themeURL = URL(string: logoURL) else {
             throw NSError(domain: "AssetsManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Cliente o URL no válidos"])
         }
         
@@ -177,11 +180,11 @@ public class AssetsManager {
     }
     
     private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
-        let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
-//        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
+        let stylesURL = URL(fileURLWithPath: "./BUENAS/\(stylesGenerator.appName)").appendingPathComponent("variables.xlsx")
+        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         
-//        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
+        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
         
         let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         let colors = try XMLManager.generateStylesYML(filePath: excelURL)
