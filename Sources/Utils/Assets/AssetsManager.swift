@@ -39,7 +39,7 @@ public class AssetsManager {
     
     public static func generateTheme(_ appName: String, xcConfigProperties: [XCConfigProperties : Any]?, themeGenerators: [ThemeGenerator] = [.assets, .styles]) async throws {
         guard let xcConfigProperties = xcConfigProperties,
-              let themeURL = URL(string: "./BUENAS/\(appName)") else {
+              let themeURL = URL(fileURLWithPath: "./BUENAS/\(appName)") as? URL else {
             throw NSError(domain: "AssetsManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Cliente o URL no válidos"])
         }
         
