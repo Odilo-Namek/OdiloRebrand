@@ -183,7 +183,8 @@ public class AssetsManager {
         let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
         let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
-        
+        print("STYLES TEMP: \(stylesTempURL)")
+        print("STYLES FILE: \(stylesFileURL)")
         try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
         
         let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
