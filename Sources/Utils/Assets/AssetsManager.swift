@@ -185,7 +185,7 @@ public class AssetsManager {
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         print("STYLES TEMP: \(stylesTempURL)")
         print("STYLES FILE: \(stylesFileURL)")
-        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
+        try FileManager.default.copyItem(at: stylesTempURL, to: stylesFileURL)
         
         let colors = try XMLManager.generateStylesYML(filePath: stylesFileURL)
         
