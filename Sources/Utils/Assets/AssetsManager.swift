@@ -178,10 +178,10 @@ public class AssetsManager {
     
     private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
         let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
-        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
+//        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         
-        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
+//        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
         
         let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         let colors = try XMLManager.generateStylesYML(filePath: excelURL)
