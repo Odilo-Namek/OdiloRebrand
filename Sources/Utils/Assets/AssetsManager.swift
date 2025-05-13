@@ -187,8 +187,7 @@ public class AssetsManager {
         print("STYLES FILE: \(stylesFileURL)")
         try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
         
-        let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
-        let colors = try XMLManager.generateStylesYML(filePath: excelURL)
+        let colors = try XMLManager.generateStylesYML(filePath: stylesFileURL)
         
         let encoder = YAMLEncoder()
         encoder.options.indent = 2
