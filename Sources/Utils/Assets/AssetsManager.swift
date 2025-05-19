@@ -180,7 +180,7 @@ public class AssetsManager {
     }
     
     private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
-        let stylesTempURL = URL(filePath: "/Users/csoler/Desktop/STTYLES/BUENAS/\(stylesGenerator.appName)/variables.xlsx")
+        let stylesTempURL = URL(filePath: "/Users/csoler/Desktop/STYLES/BUENAS/\(stylesGenerator.appName)/variables.xlsx")
 //        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
         print("STYLES TEMP: \(stylesTempURL)")
