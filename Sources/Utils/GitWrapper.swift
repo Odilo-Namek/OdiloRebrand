@@ -32,6 +32,7 @@ public class GitWrapper {
     
     public static func createBranch(_ branch: String) {
         Command.runCommand("git checkout -b \(branch)")
+        Command.runCommand("git push --set-upstream origin \(branch)")
     }
     
     public static func add(_ fileName: String = ".") {
