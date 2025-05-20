@@ -62,6 +62,7 @@ import Utils
             print("Recuerda subir las imagenes a la tienda manualmente")
             print("Recuerda provocar el crash para que conecte con Crashlytics")
             print("Recuerda añadir el deeplinking al repositorio de Orion")
+            print("Recuerda mergear la rama branding_\(self.appName.lowercased()) en master")
         }
     }
     
