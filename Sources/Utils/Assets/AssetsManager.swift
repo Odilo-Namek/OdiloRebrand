@@ -97,7 +97,7 @@ public class AssetsManager {
         let odiloProjectFolder = assetsGenerator.rootURL.appendingPathComponent("odiloapp_v3_ios")
         let odiloRebrandingsFolder = odiloProjectFolder.appendingPathComponent("Rebrandings").appendingPathComponent(assetsGenerator.appName)
         
-        try FileManager.default.moveItem(at: assetsGenerator.brandingFolderURL, to: odiloRebrandingsFolder)
+        try FileManager.default.copyItem(at: assetsGenerator.brandingFolderURL, to: odiloRebrandingsFolder)
         
         print("Assets creados correctamente")
     }
