@@ -19,7 +19,7 @@ public class GitWrapper {
     }
     
     public static func commit(_ message: String) {
-        Command.runCommand("git commit -am \(message)")
+        Command.runCommand("git commit -am \"\(message)\"")
     }
     
     public static func push() {
