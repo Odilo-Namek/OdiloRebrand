@@ -14,7 +14,7 @@ public class FirebaseManager {
         guard let token = self.loginFirebase() else {
             return
         }
-        
+        print("FIREBASE TOKEN: \(token)")
         var projectForNewApp: FirebaseProject?
         let firebaseProjects = try self.fetchFirebaseProjects(token)
         if let notFullProject = try self.fetchNotFullProject(projects: firebaseProjects, token) {
