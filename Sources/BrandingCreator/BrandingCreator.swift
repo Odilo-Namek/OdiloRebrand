@@ -48,13 +48,15 @@ import Utils
             let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
             print("ODILO PROJECT URL: \(odiloProjectFolder.absoluteString)")
+            print("CURRENT PATH: \(FileManager.default.currentDirectoryPath)")
             Command.runCommand("chmod 777 odiloapp_v3_ios")
             Command.runCommand("cd odiloapp_v3_ios")
+            print("CURRENT PATH2: \(FileManager.default.currentDirectoryPath)")
             GitWrapper.add()
             GitWrapper.commit("Finished branding \(self.appName)")
             GitWrapper.push()
             
-//            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
+            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             
             print("Recuerda añadir manualmente el appItunesID en el xcconfig una vez que este la ficha creada en el AppStoreConnect")
             print("Recuerda subir las imagenes a la tienda manualmente")
