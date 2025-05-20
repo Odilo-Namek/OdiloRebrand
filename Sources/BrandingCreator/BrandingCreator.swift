@@ -47,13 +47,17 @@ import Utils
             
             let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
-            print("CURRENT PATH: \(FileManager.default.currentDirectoryPath)")
+            print("HOLA")
             Command.runCommand("chmod 777 odiloapp_v3_ios")
+            print("HOLA1")
             FileManager.default.changeCurrentDirectoryPath(odiloProjectFolder.path)
-            print("CURRENT PATH2: \(FileManager.default.currentDirectoryPath)")
+            print("HOLA2")
             GitWrapper.add()
+            print("HOLA3")
             GitWrapper.commit("Finished branding \(self.appName)")
+            print("HOLA4")
             GitWrapper.push()
+            print("HOLA5")
             
             try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             
