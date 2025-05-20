@@ -40,24 +40,21 @@ import Utils
             
             try FirebaseManager.createNewApp(self.appName, xcConfigProperties: xcConfigProperties)
             GitWrapper.cloneRepository("https://bitbucket.org/odilo-dev/odiloapp_v3_ios.git")
-            GitWrapper.createBranch("branding_\(self.appName.lowercased())")
+            
             try YMLManager.addTargetToProject(self.appName, for: projectYML)
             try YMLManager.createWorkflow(self.appName, for: bitriseYML)
             try await AssetsManager.generateTheme(self.appName, xcConfigProperties: xcConfigProperties)
             
             let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
-            print("HOLA")
             Command.runCommand("chmod 777 odiloapp_v3_ios")
-            print("HOLA1")
+            
             FileManager.default.changeCurrentDirectoryPath(odiloProjectFolder.path)
-            print("HOLA2")
+            
+            GitWrapper.createBranch("branding_\(self.appName.lowercased())")
             GitWrapper.add()
-            print("HOLA3")
             GitWrapper.commit("Finished branding \(self.appName)")
-            print("HOLA4")
             GitWrapper.push()
-            print("HOLA5")
             
             try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             
