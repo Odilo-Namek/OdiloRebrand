@@ -49,7 +49,7 @@ import Utils
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
             print("CURRENT PATH: \(FileManager.default.currentDirectoryPath)")
             Command.runCommand("chmod 777 odiloapp_v3_ios")
-            FileManager.default.changeCurrentDirectoryPath(odiloProjectFolder.absoluteString)
+            FileManager.default.changeCurrentDirectoryPath(odiloProjectFolder.path)
             print("CURRENT PATH2: \(FileManager.default.currentDirectoryPath)")
             GitWrapper.add()
             GitWrapper.commit("Finished branding \(self.appName)")
