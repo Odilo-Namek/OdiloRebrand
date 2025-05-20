@@ -14,7 +14,7 @@ public class FirebaseManager {
         guard let token = self.loginFirebase() else {
             return
         }
-        print("FIREBASE TOKEN: \(token)")
+        
         var projectForNewApp: FirebaseProject?
         let firebaseProjects = try self.fetchFirebaseProjects(token)
         if let notFullProject = try self.fetchNotFullProject(projects: firebaseProjects, token) {
@@ -65,7 +65,7 @@ public class FirebaseManager {
     
     private static func fetchNotFullProject(projects: [FirebaseProject], _ token: String) throws -> FirebaseProject? {
         for project in projects {
-            let output = Command.runCommand("firebase apps:list --project \(project.projectID) --json --token \(token)")
+            let output = Command.runCommand("firebase apps:list --project \(project.projectID) --json")
             
             do {
                 guard let data = output.data(using: .utf8) else {
