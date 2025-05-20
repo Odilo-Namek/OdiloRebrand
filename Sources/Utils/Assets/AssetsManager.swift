@@ -180,14 +180,14 @@ public class AssetsManager {
     }
     
     private static func generateStyles(_ stylesGenerator: AssetsStylesGenerator) async throws {
-        let stylesTempURL = URL(filePath: "/Users/csoler/Desktop/STYLES/BUENAS/\(stylesGenerator.appName)/variables.xlsx")
-//        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
+        let stylesURL = stylesGenerator.themeURL.appendingPathComponent("variables.xlsx")
+        let (stylesTempURL, _) = try await URLSession.shared.download(from: stylesURL)
         let stylesFileURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
-        print("STYLES TEMP: \(stylesTempURL)")
-        print("STYLES FILE: \(stylesFileURL)")
-        try FileManager.default.copyItem(at: stylesTempURL, to: stylesFileURL)
         
-        let colors = try XMLManager.generateStylesYML(filePath: stylesFileURL)
+        try FileManager.default.moveItem(at: stylesTempURL, to: stylesFileURL)
+        
+        let excelURL = stylesGenerator.brandingFolderURL.appendingPathComponent("variables.xlsx")
+        let colors = try XMLManager.generateStylesYML(filePath: excelURL)
         
         let encoder = YAMLEncoder()
         encoder.options.indent = 2
