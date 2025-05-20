@@ -47,7 +47,7 @@ import Utils
             
             let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let odiloProjectFolder = rootURL.appendingPathComponent("odiloapp_v3_ios")
-            
+            print("ODILO PROJECT URL: \(odiloProjectFolder.absoluteString)")
             Command.runCommand("chmod 777 odiloapp_v3_ios")
             Command.runCommand("cd odiloapp_v3_ios")
             GitWrapper.add()
