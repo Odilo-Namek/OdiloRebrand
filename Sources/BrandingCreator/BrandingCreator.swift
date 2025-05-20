@@ -54,7 +54,7 @@ import Utils
             GitWrapper.commit("Finished branding \(self.appName)")
             GitWrapper.push()
             
-            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
+//            try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             
             print("Recuerda añadir manualmente el appItunesID en el xcconfig una vez que este la ficha creada en el AppStoreConnect")
             print("Recuerda subir las imagenes a la tienda manualmente")
