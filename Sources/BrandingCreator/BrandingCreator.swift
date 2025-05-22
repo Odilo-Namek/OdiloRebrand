@@ -54,7 +54,7 @@ import Utils
             GitWrapper.createBranch("branding_\(self.appName.lowercased())")
             GitWrapper.add()
             GitWrapper.commit("Finished branding \(self.appName)")
-//            GitWrapper.push()
+            GitWrapper.push()
             
             try FileManager.default.removeItem(atPath: odiloProjectFolder.path)
             
