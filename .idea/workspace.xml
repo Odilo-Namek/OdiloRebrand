@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="Added styles generator">
-      <change beforePath="$PROJECT_DIR$/odiloapp_v3_ios" beforeDir="false" afterPath="$PROJECT_DIR$/odiloapp_v3_ios" afterDir="false" />
+    <list default="true" id="061fec1c-549d-48e7-b548-6cf79507125a" name="Changes" comment="Improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +23,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/csoler/Documents/Projects/Odilo/OdiloRebrand"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/csoler/Documents/Projects/Odilo/OdiloRebrand&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,7 +46,266 @@
       <option name="project" value="LOCAL" />
       <updated>1746774939548</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Separated assets and styles generation. Added command for creating styles">
+      <created>1746781959641</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746781959641</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Styles improvements">
+      <created>1746783740961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746783740961</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Remove old styles">
+      <created>1746783826627</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746783826627</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix remove old styles">
+      <created>1746783978557</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746783978557</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix remove old styles">
+      <created>1746784148796</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746784148796</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added different subcommands for styles and assets">
+      <created>1746784662665</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746784662665</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Improvements on subcommands for styles and assets">
+      <created>1746785497503</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746785497503</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Get assets folder from local path">
+      <created>1747136168484</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747136168484</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Get assets folder from local path">
+      <created>1747137339694</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747137339694</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Get assets folder from local path">
+      <created>1747137960288</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747137960288</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Get assets folder from local path">
+      <created>1747138190040</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747138190040</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Get assets folder from local path">
+      <created>1747138630063</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747138630063</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Get assets folder from local path">
+      <created>1747139132267</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747139132267</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Get assets folder from local path">
+      <created>1747139264686</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747139264686</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Get assets folder from local path">
+      <created>1747139388406</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747139388406</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Get assets folder from local path">
+      <created>1747139670204</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1747139670204</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Get assets folder from local path">
+      <created>1747139880713</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747139880713</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Get assets folder from local path">
+      <created>1747140200109</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747140200109</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Get assets folder from local path">
+      <created>1747140381869</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1747140381869</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Get assets folder from local path">
+      <created>1747650824852</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1747650824852</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Get assets folder from local path">
+      <created>1747651148526</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1747651148526</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Undo local styles">
+      <created>1747721641639</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747721641639</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Improvements">
+      <created>1747724683744</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1747724683744</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Improvements">
+      <created>1747725184650</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747725184650</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Improvements">
+      <created>1747725609549</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1747725609549</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Improvements">
+      <created>1747726596455</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1747726596455</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Improvements">
+      <created>1747729488959</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729488959</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Improvements">
+      <created>1747729896541</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729896541</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Improvements">
+      <created>1747730070748</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747730070748</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Improvements">
+      <created>1747737278321</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1747737278321</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Improvements">
+      <created>1747738015763</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1747738015763</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Improvements">
+      <created>1747739951174</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1747739951174</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Improvements">
+      <created>1747742668183</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1747742668183</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Improvements">
+      <created>1747743232230</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1747743232230</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Improvements">
+      <created>1747744409698</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1747744409698</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Improvements">
+      <created>1747746170889</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746170889</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Improvements">
+      <created>1747753622467</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1747753622467</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -62,6 +321,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added styles generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added styles generator" />
+    <MESSAGE value="Separated assets and styles generation. Added command for creating styles" />
+    <MESSAGE value="Styles improvements" />
+    <MESSAGE value="Remove old styles" />
+    <MESSAGE value="Fix remove old styles" />
+    <MESSAGE value="Added different subcommands for styles and assets" />
+    <MESSAGE value="Improvements on subcommands for styles and assets" />
+    <MESSAGE value="Get assets folder from local path" />
+    <MESSAGE value="Undo local styles" />
+    <MESSAGE value="Improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improvements" />
   </component>
 </project>
